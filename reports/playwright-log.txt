@@ -1,0 +1,56 @@
+{"level":30,"time":"2022-04-09T05:07:55.307Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Listening on 54088"}
+{"level":30,"time":"2022-04-09T05:07:55.351Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2022-04-09T05:07:55.351Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2022-04-09T05:07:55.353Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2022-04-09T05:07:55.353Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2022-04-09T05:07:55.355Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2022-04-09T05:07:55.664Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"End of node method newBrowser"}
+{"level":30,"time":"2022-04-09T05:07:55.678Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Start of node method newPage"}
+{"level":30,"time":"2022-04-09T05:07:55.712Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2022-04-09T05:07:55.736Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Changed active context"}
+{"level":30,"time":"2022-04-09T05:07:56.435Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Video path: undefined"}
+{"level":30,"time":"2022-04-09T05:07:56.440Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Changed active page"}
+{"level":30,"time":"2022-04-09T05:07:58.814Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"End of node method newPage"}
+{"level":30,"time":"2022-04-09T05:08:00.812Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Start of node method goTo"}
+{"level":30,"time":"2022-04-09T05:08:01.349Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"End of node method goTo"}
+{"level":30,"time":"2022-04-09T05:08:01.351Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2022-04-09T05:08:01.351Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Strict mode is enabled, find Locator with .login-form in page."}
+{"level":30,"time":"2022-04-09T05:08:01.363Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2022-04-09T05:08:01.365Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Start of node method fillText"}
+{"level":30,"time":"2022-04-09T05:08:01.365Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Strict mode is enabled, find Locator with id=email in page."}
+{"level":30,"time":"2022-04-09T05:08:01.380Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"End of node method fillText"}
+{"level":30,"time":"2022-04-09T05:08:01.381Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Start of node method fillText"}
+{"level":30,"time":"2022-04-09T05:08:01.381Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Strict mode is enabled, find Locator with id=password in page."}
+{"level":30,"time":"2022-04-09T05:08:01.387Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"End of node method fillText"}
+{"level":30,"time":"2022-04-09T05:08:01.389Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Start of node method click"}
+{"level":30,"time":"2022-04-09T05:08:01.389Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Strict mode is enabled, find Locator with .submit-button >> text=Entrar in page."}
+{"level":30,"time":"2022-04-09T05:08:01.438Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"End of node method click"}
+{"level":30,"time":"2022-04-09T05:08:01.440Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2022-04-09T05:08:01.440Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Strict mode is enabled, find Locator with a[href='/profile'] in page."}
+{"level":30,"time":"2022-04-09T05:08:02.414Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2022-04-09T05:08:02.416Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Start of node method getText"}
+{"level":30,"time":"2022-04-09T05:08:02.416Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Strict mode is enabled, find Locator with a[href='/profile'] in page."}
+{"level":30,"time":"2022-04-09T05:08:02.426Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Retrieved text for element a[href='/profile'] containing Carlos Carvalho"}
+{"level":30,"time":"2022-04-09T05:08:02.426Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"End of node method getText"}
+{"level":30,"time":"2022-04-09T05:08:02.428Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2022-04-09T05:08:02.501Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2022-04-09T05:08:02.503Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2022-04-09T05:08:02.504Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2022-04-09T05:08:02.505Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Changed active context"}
+{"level":30,"time":"2022-04-09T05:08:02.505Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Changing current active page"}
+{"level":30,"time":"2022-04-09T05:08:02.505Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Changed active page"}
+{"level":30,"time":"2022-04-09T05:08:02.508Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2022-04-09T05:08:02.513Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2022-04-09T05:08:02.514Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Start of node method switchBrowser"}
+{"level":30,"time":"2022-04-09T05:08:02.514Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"End of node method switchBrowser"}
+{"level":30,"time":"2022-04-09T05:08:02.514Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Start of node method switchBrowser"}
+{"level":30,"time":"2022-04-09T05:08:02.514Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"End of node method switchBrowser"}
+{"level":30,"time":"2022-04-09T05:08:02.516Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Changed active context"}
+{"level":30,"time":"2022-04-09T05:08:02.516Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Changing current active page"}
+{"level":30,"time":"2022-04-09T05:08:02.516Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Changed active page"}
+{"level":30,"time":"2022-04-09T05:08:02.517Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Start of node method closeContext"}
+{"level":30,"time":"2022-04-09T05:08:02.538Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"End of node method closeContext"}
+{"level":30,"time":"2022-04-09T05:08:02.540Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2022-04-09T05:08:02.540Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2022-04-09T05:08:02.561Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"Start of node method closeAllBrowsers"}
+{"level":30,"time":"2022-04-09T05:08:02.767Z","pid":40952,"hostname":"AMAC02FX5Z90KPF","msg":"End of node method closeAllBrowsers"}
