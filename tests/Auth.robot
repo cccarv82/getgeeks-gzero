@@ -17,7 +17,7 @@ User Login
     User Should Be Logged In            ${user}
 
 Pass or User Invalid
-    [Tags]                              negative
+    [Tags]                              negative invalid
     [Template]                          Invalid Credentials
 
     carlos@email.com                    pwd123
