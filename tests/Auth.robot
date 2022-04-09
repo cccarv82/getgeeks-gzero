@@ -31,3 +31,4 @@ Incorrect email
     Fill Credentials                    ${user}
     Submit Credentials
     Should Be Type email
+    
