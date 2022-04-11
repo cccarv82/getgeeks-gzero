@@ -24,27 +24,6 @@ User Should Be Registered
     Wait For Elements State         ${expected_message}
     ...                             visible             5s
 
-Alert Span Should Be
-    [Arguments]                     ${expected_alert}
-    ${notification}                 Set Variable                    span[class=error] >> text=${expected_alert}
-
-    Wait For Elements State         ${notification}                 visible         5s
-
-Alert Spans Should Be
-    [Arguments]                     ${expected_alerts}
-    @{got_alerts}                   Create List
-    ${spans}                        Get Elements                    span[class=error]
-
-    FOR     ${span}     IN      @{spans}
-
-        ${text}         Get Text        ${span}
-        Append To List  ${got_alerts}   ${text}
-
-    END
-
-    Lists Should Be Equal           ${expected_alerts}              ${got_alerts}
-
-
 Signup With Short Password
     [Arguments]                                 ${spwd}
 

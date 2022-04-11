@@ -31,4 +31,31 @@ Incorrect email
     Fill Credentials                    ${user}
     Submit Credentials
     Should Be Type email
-    
+
+Required email
+    [Tags]                              negative
+    ${user}                             Create Dictionary               email=${EMPTY}              password=abc123
+
+    Go To Login Page
+    Fill Credentials                    ${user}
+    Submit Credentials
+    Alert Span Should Be                E-mail obrigatório
+
+Blank password
+    [Tags]                              negative
+    ${user}                             Create Dictionary               email=email@email.com      password=${EMPTY}
+
+    Go To Login Page
+    Fill Credentials                    ${user}
+    Submit Credentials
+    Alert Span Should Be                Senha obrigatória
+
+Required Form Fields
+    [Tags]                              negative
+    @{expected_alerts}                  Create List
+    ...                                 E-mail obrigatório
+    ...                                 Senha obrigatória
+
+    Go To Login Page
+    Submit Credentials
+    Alert Spans Should Be               ${expected_alerts}
