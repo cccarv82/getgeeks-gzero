@@ -42,7 +42,6 @@ Required Form Fields
     ...                                         E o sobrenome?
     ...                                         O email é importante também!
     ...                                         Agora só falta a senha!
-
     Go To Signup Form
     Submit Signup Form
     Alert Spans Should Be                       ${expected_alerts}
