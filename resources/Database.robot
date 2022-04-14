@@ -20,13 +20,13 @@ Reset Env
 Insert User
     [Arguments]                 ${u}
     ${hashed_pass}              Get Hashed Pass         ${u}[password]
-    ${q}                        Set Variable            INSERT into public.users (name, email, password_hash, is_geek) values ('${u}[name] ${u}[lastname]', '${u}[email]', '${hashed_pass}', false)                    
+    ${q}                        Set Variable            INSERT into public.users (name, email, password_hash, is_geek) values ('${u}[name] ${u}[lastname]', '${u}[email]', '${hashed_pass}', false)
 
-    Execute SQL String          ${q}          
+    Execute SQL String          ${q}
 
 Users Seed
-    ${user}                     Factory User Login
+    ${user}                     Factory User            login
     Insert User                 ${user}
 
-    ${user2}                    Factory User Be Geek
+    ${user2}                    Factory User            be_geek
     Insert User                 ${user2}

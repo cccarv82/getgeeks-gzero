@@ -5,6 +5,8 @@ robot -l NONE -o NONE -r NONE tasks/DatabasePreparation.robot
 #executar apenas positivos
 #robot -d ./report -i positive tests/
 #executar apenas negativos
-#robot -d ./report -i negative testes/
-robot -d ./report tests/
+#robot -d ./report -i negative tests/
+#
+robot -d ./report -i a tests/
+#
 rm -rf playwright-log.txt

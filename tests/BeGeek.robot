@@ -9,9 +9,10 @@ Test Teardown                   Finish Session
 
 *Test Cases*
 Be a Geek
+    [Tags]              a
 
     # Dado que eu tenha um usuário comum
-    ${user}                     Factory User Be Geek
+    ${user}                     Factory User        be_geek
 
     # Faço login na plataforma
     Do Login                    ${user}
@@ -23,4 +24,3 @@ Be a Geek
 
     # Entao devo ver a mensagem de sucesso
     Geek Form Should Be Success
-    Sleep               5s

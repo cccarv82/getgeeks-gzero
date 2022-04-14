@@ -19,7 +19,7 @@ ${BASE_URL}             https://getgeeks-cccarv.herokuapp.com
 
 *Keywords*
 Start Session
-    New Browser         chromium        headless=True       slowMo=00:00:00
+    New Browser         chromium        headless=False       slowMo=00:00:00
     New Page            ${BASE_URL}
 
 Finish Session

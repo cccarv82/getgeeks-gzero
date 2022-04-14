@@ -9,7 +9,7 @@ Test Teardown           Finish Session
 *Test Cases*
 Register a new user
     [Tags]                                      positive
-    ${user}                                     Factory User
+    ${user}                                     Factory User            new_user
 
     Go To Signup Form
     Fill Signup Form                            ${user}
@@ -18,9 +18,9 @@ Register a new user
 
 Try to register a user that already exists
     [Tags]                                      negative
-    ${user}                                     Factory User
+    ${user}                                     Factory User            new_user
     Add User From Database                      ${user}
-    
+
     Go To Signup Form
     Fill Signup Form                            ${user}
     Submit Signup Form
@@ -28,7 +28,7 @@ Try to register a user that already exists
 
 Wrong email
     [Tags]                                      negative
-    ${user}                                     Factory Wrong Email
+    ${user}                                     Factory User            wrong_email
 
     Go To Signup Form
     Fill Signup Form                            ${user}
