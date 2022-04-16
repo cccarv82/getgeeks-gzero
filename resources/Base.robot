@@ -10,6 +10,7 @@ Resource                actions/_SharedActions.robot
 Resource                actions/AuthActions.robot
 Resource                actions/SignupActions.robot
 Resource                actions/BeGeekActions.robot
+Resource                actions/AttemptBeGeekActions.robot
 
 Resource                Helpers.robot
 Resource                Database.robot
@@ -23,4 +24,4 @@ Start Session
     New Page            ${BASE_URL}
 
 Finish Session
-    Take Screenshot
+    Take Screenshot     fullPage=True

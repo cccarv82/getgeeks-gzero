@@ -29,7 +29,7 @@ def factory_user(tipo):
         },
         'be_geek': {
             'name': 'Geek',
-            'lastname': '1',
+            'lastname': 'Numero 1',
             'email': 'geek@email.com',
             'password': 'abc123',
             'geek_profile': {
@@ -38,6 +38,19 @@ def factory_user(tipo):
                 'printer_repair': 'Sim',
                 'work': 'Remoto',
                 'cost': '100'
+            }
+        },
+        'attempt_be_geek': {
+            'name': 'Geek',
+            'lastname': 'Numero 2',
+            'email': 'geek2@email.com',
+            'password': 'abc123',
+            'geek_profile': {
+                'whatsapp': '11999999999',
+                'desc': fake.texts(nb_texts=3, max_nb_chars=83),
+                'printer_repair': 'Não',
+                'work': 'Ambos',
+                'cost': '200'
             }
         }
     }

@@ -9,7 +9,7 @@ Test Teardown                   Finish Session
 
 *Test Cases*
 Be a Geek
-    [Tags]              a
+    [Tags]                      positive
 
     # Dado que eu tenha um usuário comum
     ${user}                     Factory User        be_geek
