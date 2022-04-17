@@ -8,7 +8,7 @@ Test Teardown           Finish Session
 
 *Test Cases*
 User Login
-    [Tags]                              positive
+    [Tags]                              positive                    smoke
     ${user}                             Factory User                login
 
     Go To Login Page

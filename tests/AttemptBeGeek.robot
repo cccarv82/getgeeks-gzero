@@ -24,3 +24,8 @@ Empty cost                      cost                        ${EMPTY}            
 Cost Letters                    cost                        abc                        Valor hora deve ser numérico
 Cost Char                       cost                        @#$                        Valor hora deve ser numérico
 Cost Alpha                      cost                        abc123                     Valor hora deve ser numérico
+# Printer Repair
+No Printer Repair               printer_repair              ${EMPTY}                   Por favor, informe se você é um Geek Supremo
+# Work Model
+No Work Model                   work                        ${EMPTY}                   Por favor, selecione o modelo de trabalho
+

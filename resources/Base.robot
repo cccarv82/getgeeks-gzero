@@ -20,8 +20,9 @@ ${BASE_URL}             https://getgeeks-cccarv.herokuapp.com
 
 *Keywords*
 Start Session
-    New Browser         chromium        headless=False       slowMo=00:00:00
+    New Browser         ${BROWSER}        headless=${HEADLESS}       slowMo=00:00:00
     New Page            ${BASE_URL}
+    Set Viewport Size   1280            768
 
 Finish Session
     Take Screenshot     fullPage=True

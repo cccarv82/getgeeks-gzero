@@ -8,7 +8,7 @@ Test Teardown           Finish Session
 
 *Test Cases*
 Register a new user
-    [Tags]                                      positive
+    [Tags]                                      positive                smoke
     ${user}                                     Factory User            new_user
 
     Go To Signup Form
