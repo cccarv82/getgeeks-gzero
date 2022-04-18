@@ -13,7 +13,7 @@ Attempt To Be A Geek
     Fill Geek Form              ${user}[geek_profile]
     Submit Geek Form
     Alert Span Should Be        ${output}
-    Take Screenshot             fullPage=True
+    After Test
 
 Start Session For Attempt To Be A Geek
     ${user}                     Factory User              attempt_be_geek

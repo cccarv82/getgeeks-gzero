@@ -5,6 +5,7 @@ Library                 Browser
 Library                 Collections
 
 Library                 factories/Users.py
+Library                 Utils.py
 
 Resource                actions/_SharedActions.robot
 Resource                actions/AuthActions.robot
@@ -22,7 +23,8 @@ ${BASE_URL}             https://getgeeks-cccarv.herokuapp.com
 Start Session
     New Browser         ${BROWSER}        headless=${HEADLESS}       slowMo=00:00:00
     New Page            ${BASE_URL}
-    Set Viewport Size   1280            768
+    Set Viewport Size   1280              768
 
-Finish Session
-    Take Screenshot     fullPage=True
+After Test
+    ${screenshot_name}  Screenshot Name
+    Take Screenshot     fullPage=True     filename=${screenshot_name}
