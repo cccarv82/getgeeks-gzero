@@ -1,2 +1,2 @@
-rm -rf report/*
-robot -d ./report users/tests/
+rm -rf users/report/*
+robot -d users/report users/tests/
