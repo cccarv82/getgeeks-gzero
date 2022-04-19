@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0 (Python 3.9.12 on darwin)" generated="20220419 16:15:29.804" rpa="false" schemaversion="3">
+<suite id="s1" name="Tests" source="/Users/c.b.carvalho/Library/CloudStorage/OneDrive-Accenture/Robot Framework/Projetos/GravidadeZERO/getgeeks/project/backend/users/tests">
+<suite id="s1-s1" name="Sessions" source="/Users/c.b.carvalho/Library/CloudStorage/OneDrive-Accenture/Robot Framework/Projetos/GravidadeZERO/getgeeks/project/backend/users/tests/Sessions.robot">
+<test id="s1-s1-t1" name="User Session" line="16">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${payload}</var>
+<arg>email=carlos@email.com</arg>
+<arg>password=abc123</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220419 16:15:29.896" level="INFO">${payload} = {'email': 'carlos@email.com', 'password': 'abc123'}</msg>
+<status status="PASS" starttime="20220419 16:15:29.896" endtime="20220419 16:15:29.896"/>
+</kw>
+<kw name="POST Session" library="SessionsRoute">
+<var>${response}</var>
+<arg>${payload}</arg>
+<kw name="POST" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${API_USERS}/sessions</arg>
+<arg>json=${payload}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request.</doc>
+<msg timestamp="20220419 16:15:30.695" level="INFO">POST Request : url=https://getgeeks-users-cccarv.herokuapp.com/sessions 
+ path_url=/sessions 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '51', 'Content-Type': 'application/json'} 
+ body=b'{"email": "carlos@email.com", "password": "abc123"}' 
+ </msg>
+<msg timestamp="20220419 16:15:30.695" level="INFO">POST Response : url=https://getgeeks-users-cccarv.herokuapp.com/sessions 
+ status=200, reason=OK 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '366', 'Etag': 'W/"16e-MmM5BDr8A/Anegytbx8oL6CQUB4"', 'Date': 'Tue, 19 Apr 2022 19:15:30 GMT', 'Via': '1.1 vegur'} 
+ body={"user":{"id":383,"email":"carlos@email.com","password_hash":"$2b$08$Fz/JKPuAS5Ga3PIVzolFcudqWR5XL5X8.M5H11b6rIUEoc8/iEbn6","name":"Carlos Carvalho","avatar":null,"whatsapp":null,"is_geek":false},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzgzLCJpYXQiOjE2NTAzOTU3MzAsImV4cCI6MTY1MTI1OTczMH0.urVlDZr35UTcJvIL4uP20P565KlSgFRkdykIWQapW5c","expires_in":"10d"} 
+ </msg>
+<msg timestamp="20220419 16:15:30.695" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220419 16:15:29.896" endtime="20220419 16:15:30.695"/>
+</kw>
+<msg timestamp="20220419 16:15:30.696" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220419 16:15:29.896" endtime="20220419 16:15:30.696"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20220419 16:15:30.696" endtime="20220419 16:15:30.696"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${token_length}</var>
+<arg>${response.json()}[token]</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20220419 16:15:30.697" level="INFO">Length is 140</msg>
+<msg timestamp="20220419 16:15:30.698" level="INFO">${token_length} = 140</msg>
+<status status="PASS" starttime="20220419 16:15:30.697" endtime="20220419 16:15:30.698"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${expected_token_size}</var>
+<arg>140</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20220419 16:15:30.698" level="INFO">${expected_token_size} = 140</msg>
+<status status="PASS" starttime="20220419 16:15:30.698" endtime="20220419 16:15:30.698"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${expected_token_size}</arg>
+<arg>${token_length}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220419 16:15:30.698" endtime="20220419 16:15:30.699"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>10d</arg>
+<arg>${response.json()}[expires_in]</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220419 16:15:30.699" endtime="20220419 16:15:30.700"/>
+</kw>
+<status status="PASS" starttime="20220419 16:15:29.895" endtime="20220419 16:15:30.700"/>
+</test>
+<test id="s1-s1-t2" name="Should Not Get Token" line="28">
+<kw name="Attempt POST Session" library="SessionsActions">
+<arg>${inv_pass}</arg>
+<arg>401</arg>
+<arg>Unauthorized</arg>
+<kw name="POST Session" library="SessionsRoute">
+<var>${response}</var>
+<arg>${payload}</arg>
+<kw name="POST" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${API_USERS}/sessions</arg>
+<arg>json=${payload}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request.</doc>
+<msg timestamp="20220419 16:15:31.503" level="INFO">POST Request : url=https://getgeeks-users-cccarv.herokuapp.com/sessions 
+ path_url=/sessions 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '51', 'Content-Type': 'application/json'} 
+ body=b'{"email": "carlos@email.com", "password": "pwd132"}' 
+ </msg>
+<msg timestamp="20220419 16:15:31.503" level="INFO">POST Response : url=https://getgeeks-users-cccarv.herokuapp.com/sessions 
+ status=401, reason=Unauthorized 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '24', 'Etag': 'W/"18-XPDV80vbMk4yY1/PADG4jYM4rSI"', 'Date': 'Tue, 19 Apr 2022 19:15:31 GMT', 'Via': '1.1 vegur'} 
+ body={"error":"Unauthorized"} 
+ </msg>
+<msg timestamp="20220419 16:15:31.503" level="INFO">${response} = &lt;Response [401]&gt;</msg>
+<status status="PASS" starttime="20220419 16:15:30.701" endtime="20220419 16:15:31.503"/>
+</kw>
+<msg timestamp="20220419 16:15:31.504" level="INFO">${response} = &lt;Response [401]&gt;</msg>
+<status status="PASS" starttime="20220419 16:15:30.701" endtime="20220419 16:15:31.504"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>${status_code}</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20220419 16:15:31.504" endtime="20220419 16:15:31.505"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${error_message}</arg>
+<arg>${response.json()}[error]</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220419 16:15:31.505" endtime="20220419 16:15:31.506"/>
+</kw>
+<status status="PASS" starttime="20220419 16:15:30.701" endtime="20220419 16:15:31.506"/>
+</kw>
+<kw name="Attempt POST Session" library="SessionsActions">
+<arg>${inv_email}</arg>
+<arg>400</arg>
+<arg>Incorrect email</arg>
+<kw name="POST Session" library="SessionsRoute">
+<var>${response}</var>
+<arg>${payload}</arg>
+<kw name="POST" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${API_USERS}/sessions</arg>
+<arg>json=${payload}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request.</doc>
+<msg timestamp="20220419 16:15:32.200" level="INFO">POST Request : url=https://getgeeks-users-cccarv.herokuapp.com/sessions 
+ path_url=/sessions 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '51', 'Content-Type': 'application/json'} 
+ body=b'{"email": "carlos#email.com", "password": "pwd132"}' 
+ </msg>
+<msg timestamp="20220419 16:15:32.200" level="INFO">POST Response : url=https://getgeeks-users-cccarv.herokuapp.com/sessions 
+ status=400, reason=Bad Request 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '27', 'Etag': 'W/"1b-/TOfJuE8lwSWEXvBl7o6iRstTo0"', 'Date': 'Tue, 19 Apr 2022 19:15:32 GMT', 'Via': '1.1 vegur'} 
+ body={"error":"Incorrect email"} 
+ </msg>
+<msg timestamp="20220419 16:15:32.201" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20220419 16:15:31.508" endtime="20220419 16:15:32.201"/>
+</kw>
+<msg timestamp="20220419 16:15:32.201" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20220419 16:15:31.507" endtime="20220419 16:15:32.201"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>${status_code}</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20220419 16:15:32.201" endtime="20220419 16:15:32.202"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${error_message}</arg>
+<arg>${response.json()}[error]</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220419 16:15:32.202" endtime="20220419 16:15:32.203"/>
+</kw>
+<status status="PASS" starttime="20220419 16:15:31.507" endtime="20220419 16:15:32.203"/>
+</kw>
+<kw name="Attempt POST Session" library="SessionsActions">
+<arg>${email_404}</arg>
+<arg>401</arg>
+<arg>Unauthorized</arg>
+<kw name="POST Session" library="SessionsRoute">
+<var>${response}</var>
+<arg>${payload}</arg>
+<kw name="POST" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${API_USERS}/sessions</arg>
+<arg>json=${payload}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request.</doc>
+<msg timestamp="20220419 16:15:32.963" level="INFO">POST Request : url=https://getgeeks-users-cccarv.herokuapp.com/sessions 
+ path_url=/sessions 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '49', 'Content-Type': 'application/json'} 
+ body=b'{"email": "carlos@404.com", "password": "pwd132"}' 
+ </msg>
+<msg timestamp="20220419 16:15:32.964" level="INFO">POST Response : url=https://getgeeks-users-cccarv.herokuapp.com/sessions 
+ status=401, reason=Unauthorized 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '24', 'Etag': 'W/"18-XPDV80vbMk4yY1/PADG4jYM4rSI"', 'Date': 'Tue, 19 Apr 2022 19:15:33 GMT', 'Via': '1.1 vegur'} 
+ body={"error":"Unauthorized"} 
+ </msg>
+<msg timestamp="20220419 16:15:32.964" level="INFO">${response} = &lt;Response [401]&gt;</msg>
+<status status="PASS" starttime="20220419 16:15:32.204" endtime="20220419 16:15:32.964"/>
+</kw>
+<msg timestamp="20220419 16:15:32.965" level="INFO">${response} = &lt;Response [401]&gt;</msg>
+<status status="PASS" starttime="20220419 16:15:32.203" endtime="20220419 16:15:32.965"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>${status_code}</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20220419 16:15:32.965" endtime="20220419 16:15:32.965"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${error_message}</arg>
+<arg>${response.json()}[error]</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220419 16:15:32.965" endtime="20220419 16:15:32.966"/>
+</kw>
+<status status="PASS" starttime="20220419 16:15:32.203" endtime="20220419 16:15:32.966"/>
+</kw>
+<kw name="Attempt POST Session" library="SessionsActions">
+<arg>${empty_email}</arg>
+<arg>400</arg>
+<arg>Required email</arg>
+<kw name="POST Session" library="SessionsRoute">
+<var>${response}</var>
+<arg>${payload}</arg>
+<kw name="POST" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${API_USERS}/sessions</arg>
+<arg>json=${payload}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request.</doc>
+<msg timestamp="20220419 16:15:33.653" level="INFO">POST Request : url=https://getgeeks-users-cccarv.herokuapp.com/sessions 
+ path_url=/sessions 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '35', 'Content-Type': 'application/json'} 
+ body=b'{"email": "", "password": "pwd132"}' 
+ </msg>
+<msg timestamp="20220419 16:15:33.654" level="INFO">POST Response : url=https://getgeeks-users-cccarv.herokuapp.com/sessions 
+ status=400, reason=Bad Request 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '26', 'Etag': 'W/"1a-ztWLEO5pP/4DOQYYgf8vh7rMmRI"', 'Date': 'Tue, 19 Apr 2022 19:15:33 GMT', 'Via': '1.1 vegur'} 
+ body={"error":"Required email"} 
+ </msg>
+<msg timestamp="20220419 16:15:33.654" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20220419 16:15:32.968" endtime="20220419 16:15:33.654"/>
+</kw>
+<msg timestamp="20220419 16:15:33.654" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20220419 16:15:32.967" endtime="20220419 16:15:33.654"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>${status_code}</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20220419 16:15:33.654" endtime="20220419 16:15:33.655"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${error_message}</arg>
+<arg>${response.json()}[error]</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220419 16:15:33.655" endtime="20220419 16:15:33.656"/>
+</kw>
+<status status="PASS" starttime="20220419 16:15:32.967" endtime="20220419 16:15:33.656"/>
+</kw>
+<kw name="Attempt POST Session" library="SessionsActions">
+<arg>${wo_email}</arg>
+<arg>400</arg>
+<arg>Required email</arg>
+<kw name="POST Session" library="SessionsRoute">
+<var>${response}</var>
+<arg>${payload}</arg>
+<kw name="POST" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${API_USERS}/sessions</arg>
+<arg>json=${payload}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request.</doc>
+<msg timestamp="20220419 16:15:34.321" level="INFO">POST Request : url=https://getgeeks-users-cccarv.herokuapp.com/sessions 
+ path_url=/sessions 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '22', 'Content-Type': 'application/json'} 
+ body=b'{"password": "pwd132"}' 
+ </msg>
+<msg timestamp="20220419 16:15:34.321" level="INFO">POST Response : url=https://getgeeks-users-cccarv.herokuapp.com/sessions 
+ status=400, reason=Bad Request 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '26', 'Etag': 'W/"1a-ztWLEO5pP/4DOQYYgf8vh7rMmRI"', 'Date': 'Tue, 19 Apr 2022 19:15:34 GMT', 'Via': '1.1 vegur'} 
+ body={"error":"Required email"} 
+ </msg>
+<msg timestamp="20220419 16:15:34.321" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20220419 16:15:33.657" endtime="20220419 16:15:34.321"/>
+</kw>
+<msg timestamp="20220419 16:15:34.321" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20220419 16:15:33.657" endtime="20220419 16:15:34.321"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>${status_code}</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20220419 16:15:34.322" endtime="20220419 16:15:34.322"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${error_message}</arg>
+<arg>${response.json()}[error]</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220419 16:15:34.322" endtime="20220419 16:15:34.323"/>
+</kw>
+<status status="PASS" starttime="20220419 16:15:33.656" endtime="20220419 16:15:34.324"/>
+</kw>
+<kw name="Attempt POST Session" library="SessionsActions">
+<arg>${empty_pass}</arg>
+<arg>400</arg>
+<arg>Required pass</arg>
+<kw name="POST Session" library="SessionsRoute">
+<var>${response}</var>
+<arg>${payload}</arg>
+<kw name="POST" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${API_USERS}/sessions</arg>
+<arg>json=${payload}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request.</doc>
+<msg timestamp="20220419 16:15:34.997" level="INFO">POST Request : url=https://getgeeks-users-cccarv.herokuapp.com/sessions 
+ path_url=/sessions 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '45', 'Content-Type': 'application/json'} 
+ body=b'{"email": "carlos@email.com", "password": ""}' 
+ </msg>
+<msg timestamp="20220419 16:15:34.997" level="INFO">POST Response : url=https://getgeeks-users-cccarv.herokuapp.com/sessions 
+ status=400, reason=Bad Request 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '25', 'Etag': 'W/"19-XQPKZGB2rC+TLudFQKbwFLPwbR0"', 'Date': 'Tue, 19 Apr 2022 19:15:35 GMT', 'Via': '1.1 vegur'} 
+ body={"error":"Required pass"} 
+ </msg>
+<msg timestamp="20220419 16:15:34.997" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20220419 16:15:34.325" endtime="20220419 16:15:34.997"/>
+</kw>
+<msg timestamp="20220419 16:15:34.998" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20220419 16:15:34.324" endtime="20220419 16:15:34.998"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>${status_code}</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20220419 16:15:34.998" endtime="20220419 16:15:34.998"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${error_message}</arg>
+<arg>${response.json()}[error]</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220419 16:15:34.999" endtime="20220419 16:15:35.000"/>
+</kw>
+<status status="PASS" starttime="20220419 16:15:34.324" endtime="20220419 16:15:35.000"/>
+</kw>
+<kw name="Attempt POST Session" library="SessionsActions">
+<arg>${wo_pass}</arg>
+<arg>400</arg>
+<arg>Required pass</arg>
+<kw name="POST Session" library="SessionsRoute">
+<var>${response}</var>
+<arg>${payload}</arg>
+<kw name="POST" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${API_USERS}/sessions</arg>
+<arg>json=${payload}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request.</doc>
+<msg timestamp="20220419 16:15:35.680" level="INFO">POST Request : url=https://getgeeks-users-cccarv.herokuapp.com/sessions 
+ path_url=/sessions 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '29', 'Content-Type': 'application/json'} 
+ body=b'{"email": "carlos@email.com"}' 
+ </msg>
+<msg timestamp="20220419 16:15:35.680" level="INFO">POST Response : url=https://getgeeks-users-cccarv.herokuapp.com/sessions 
+ status=400, reason=Bad Request 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '25', 'Etag': 'W/"19-XQPKZGB2rC+TLudFQKbwFLPwbR0"', 'Date': 'Tue, 19 Apr 2022 19:15:35 GMT', 'Via': '1.1 vegur'} 
+ body={"error":"Required pass"} 
+ </msg>
+<msg timestamp="20220419 16:15:35.680" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20220419 16:15:35.001" endtime="20220419 16:15:35.680"/>
+</kw>
+<msg timestamp="20220419 16:15:35.681" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20220419 16:15:35.001" endtime="20220419 16:15:35.681"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>${status_code}</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20220419 16:15:35.681" endtime="20220419 16:15:35.681"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${error_message}</arg>
+<arg>${response.json()}[error]</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220419 16:15:35.682" endtime="20220419 16:15:35.683"/>
+</kw>
+<status status="PASS" starttime="20220419 16:15:35.000" endtime="20220419 16:15:35.683"/>
+</kw>
+<status status="PASS" starttime="20220419 16:15:30.700" endtime="20220419 16:15:35.683"/>
+</test>
+<doc>Test Suite for Sessions route</doc>
+<status status="PASS" starttime="20220419 16:15:29.818" endtime="20220419 16:15:35.684"/>
+</suite>
+<status status="PASS" starttime="20220419 16:15:29.805" endtime="20220419 16:15:35.685"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s1" name="Sessions">Tests.Sessions</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
