@@ -1,6 +1,6 @@
 *** Settings ***
 Documentation       Session route test suite
-Resource            ${EXECDIR}/users/resources/Base.robot
+Resource            ${EXECDIR}/resources/Base.robot
 
 *** Test Cases ***
 #Test Case de adição de novo usuário utilizando massa de dados específica e utilização da palavra chave Remove User
