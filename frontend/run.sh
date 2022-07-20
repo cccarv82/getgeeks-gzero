@@ -19,3 +19,9 @@ mkdir report/browser/screenshot
 cp $(find report/pabot_results -type f -name "*.png") report/browser/screenshot/
 rm -rf report/pabot_results/
 rm -rf .pabotsuitenames
+
+# Criação do dashboard com métricas
+# https://github.com/adiralashiva8/robotframework-metrics
+robotmetrics --inputpath ./report --output output.xml
+cp metrics-* ./report
+rm -rf metrics-*
