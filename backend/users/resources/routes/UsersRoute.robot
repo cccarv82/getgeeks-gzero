@@ -9,3 +9,12 @@ POST User
     ...                   json=${payload}
     ...                   expected_status=any
     [return]              ${response}
+
+DELETE User
+    [Arguments]           ${token}
+    ${headers}            Create Dictionary            Authorization=${token}
+    ${response}           DELETE
+    ...                   ${API_USERS}/users
+    ...                   headers=${headers}
+    ...                   expected_status=any
+    [return]              ${response}
