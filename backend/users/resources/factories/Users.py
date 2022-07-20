@@ -6,6 +6,14 @@ def factory_new_user():
     }
 
 
+def factory_get_user():
+    return {
+        'name': 'Geek Cinco',
+        'email': 'geek5@email.com',
+        'password': 'abc123'
+    }
+
+
 def factory_user_session(target):
     name = 'Geek Três'
     email = 'geek3@email.com'
