@@ -3,6 +3,7 @@ Documentation           Base file
 
 Library                 Browser
 Library                 Collections
+Library                 String
 
 Library                 factories/Users.py
 Library                 Utils.py
@@ -10,11 +11,12 @@ Library                 Utils.py
 Resource                actions/_SharedActions.robot
 Resource                actions/AuthActions.robot
 Resource                actions/SignupActions.robot
-Resource                actions/BeGeekActions.robot
+Resource                actions/GeekActions.robot
 Resource                actions/AttemptBeGeekActions.robot
 
 Resource                Helpers.robot
 Resource                Database.robot
+Resource                Services.robot
 
 *Variables*
 ${BASE_URL}             https://getgeeks-cccarv.herokuapp.com

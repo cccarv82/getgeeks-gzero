@@ -1,0 +1,28 @@
+[
+  {
+    "_id": "c4e8362e-711f-4680-bf44-856594446f76",
+    "name": "getgeeks",
+    "default": true,
+    "sortNum": 10000,
+    "created": "2022-07-21T17:43:15.701Z",
+    "modified": "2022-07-21T18:12:47.768Z",
+    "data": [
+      {
+        "name": "alien-token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NzkyLCJpYXQiOjE2NTg0MjcxMTYsImV4cCI6MTY1OTI5MTExNn0.XvXDWwtN6wsjHk3m7AQmWlfDD8qL1xbH2Y5eaBt95UE"
+      },
+      {
+        "name": "not-alien-token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Nzg1LCJpYXQiOjE2NTg0MTkxNjMsImV4cCI6MTY1OTI4MzE2M30.DdvyFc6MK_TOm5pWG1c-FZwv2T1srHzY2qkOiQpTk2Q"
+      },
+      {
+        "name": "new_user_token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Nzk0LCJpYXQiOjE2NTg0MjcwMzQsImV4cCI6MTY1OTI5MTAzNH0.inEEYU5aZg7_zTCz1dGZ79pINd3f-mBIzegjaUKvDK0"
+      },
+      {
+        "name": "not-an-alien-token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NzkzLCJpYXQiOjE2NTg0MjcxNjcsImV4cCI6MTY1OTI5MTE2N30.YPePoU-K396gAXMIKbE6f5g6ia8vq4u-5d4E3a_WhS8"
+      }
+    ]
+  }
+]
