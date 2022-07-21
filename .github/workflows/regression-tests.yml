@@ -37,7 +37,9 @@ jobs:
     - name: Test Reporter
       uses: dorny/test-reporter@v1.5.0
       with:
+        # Name or regex of artifact containing test results
+        artifact: xunit.xml
+        # Name of the check run
         name: API Test Result
         path: backend/report/xunit.xml
         reporter: java-junit
-        list-suites: all
