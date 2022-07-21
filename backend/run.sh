@@ -1,8 +1,8 @@
 rm -rf report/*
 #executar tudo
-robot -x xunit.xml -d ./report tests/
+#robot -x xunit.xml -d ./report tests/
 #robot -x xunit.xml -d ./report -i temp tests/Geeks.robot
-#pabot -x xunit.xml -d ./report tests/
+pabot -x xunit.xml -d ./report tests/
 
 # Criação do dashboard com métricas
 # https://github.com/adiralashiva8/robotframework-metrics
