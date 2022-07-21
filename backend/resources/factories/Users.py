@@ -73,3 +73,51 @@ def factory_be_geek():
             'cost': '99.90'
         }
     }
+
+
+def factory_search_for_geeks():
+    return {
+        'user': {
+            'name': 'Geek Nove',
+            'email': 'geek9@email.com',
+            'password': 'abc123'
+        },
+        'geeks': [
+            {
+                'name': 'Geek Dez',
+                'email': 'geek10@email.com',
+                'password': 'abc123',
+                'geek_profile': {
+                    'whatsapp': '99999999999',
+                    'desc': 'Seu computador está lento? Reiniciando do nada? Talvez seja um vírus, ou algum hardware com defeito. Posso fazer a manutenção no seu PC, formando, reinstalando o SO, trocando algum componente físico e porque não remover o baidu ou qualquer outro malware.',
+                    'printer_repair': 'Não',
+                    'work': 'Presencial',
+                    'cost': '100'
+                }
+            },
+            {
+                'name': 'Geek Onze',
+                'email': 'geek11@email.com',
+                'password': 'abc123',
+                'geek_profile': {
+                    'whatsapp': '99999999999',
+                    'desc': 'Instalo Distros Ubuntu, Debian, ElementaryOS, PopOS, Linux Mint, Kurumin, Mandrake, Connectiva, Fedora, RedHat, CentOS, Slackware, Gentoo, Archlinux, Kubuntu, Xubuntu, Suze, Mandriva, Edubuntu, KateOS, Sabayon Linux, Manjaro Linux, BigLinux, ZorinOS, Unit',
+                    'printer_repair': 'Não',
+                    'work': 'Ambos',
+                    'cost': '110'
+                }
+            },
+            {
+                'name': 'Geek Doze',
+                'email': 'geek12@email.com',
+                'password': 'abc123',
+                'geek_profile': {
+                    'whatsapp': '99999999999',
+                    'desc': 'Instalado e faço manutenção em qualquer tipo de impressora, matricial padrão, matricial fiscal, a jato, a cera, a laser e até 3D. Também faço remold de fitas coloridas para Epson LX300. ',
+                    'printer_repair': 'Sim',
+                    'work': 'Remoto',
+                    'cost': '120'
+                }
+            }
+        ]
+    }

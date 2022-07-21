@@ -11,3 +11,12 @@ POST Geek
     ...                   headers=${headers}
     ...                   expected_status=any
     [return]              ${response}
+
+GET Geeks
+    [Arguments]           ${token}
+    ${headers}            Create Dictionary           Authorization=${token}
+    ${response}           GET
+    ...                   ${API_GEEKS}/geeks
+    ...                   headers=${headers}
+    ...                   expected_status=any
+    [return]              ${response}

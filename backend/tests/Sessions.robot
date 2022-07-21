@@ -4,6 +4,7 @@ Resource            ${EXECDIR}/resources/Base.robot
 
 *** Test Cases ***
 User session
+    [Tags]        Smoke
 
     ${payload}            Factory User Session        signup
     POST User             ${payload}
@@ -18,6 +19,7 @@ User session
     Should Be Equal       10d                         ${response.json()}[expires_in]
 
 Should Not Get Token
+    [Tags]        Negativo
     [Template]            Attempt POST Session
 
     ${inv_email}          400                         Incorrect email

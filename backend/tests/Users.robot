@@ -6,6 +6,7 @@ Resource            ${EXECDIR}/resources/Base.robot
 #Test Case de adição de novo usuário utilizando massa de dados específica e utilização da palavra chave Remove User
 #tornando o test case de adição independente
 Add new user
+    [Tags]        Smoke
     #Definindo a massa de dados a ser utilizada
     ${user}                       Factory New User
 
