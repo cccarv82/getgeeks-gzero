@@ -35,7 +35,7 @@ jobs:
         name: api-report
         path: backend/report
     - name: Test Reporter
-      uses: dorny/test-reporter@v1.5.0
+      uses: phoenix-actions/test-reporting@v8
       with:
         name: API Test Result
         path: backend/report/xunit.xml
@@ -60,9 +60,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install build
         pip install -r requirements.txt
+    - name: Node Dependencies Install (rfbrowser)
+      run: rfbrowser init
     - name: Run WEB Tests
       run: |
-        rfbrowser init
         chmod +x ./frontend/run.sh
         cd frontend/ && ./run.sh
     - name: WEB Test Results - Report Upload
@@ -72,7 +73,7 @@ jobs:
         name: web-report
         path: frontend/report
     - name: Test Reporter
-      uses: dorny/test-reporter@v1.5.0
+      uses: phoenix-actions/test-reporting@v8
       with:
         name: WEB Test Result
         path: frontend/report/xunit.xml
