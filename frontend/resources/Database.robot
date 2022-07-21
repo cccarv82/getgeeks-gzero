@@ -24,12 +24,10 @@ Insert User
 
     Execute SQL String          ${q}
 
+#Palavra chave que recupera a lista de usuários no arquivo de massa, percorre a lista e adiciona um por um até acabar a lista
 Users Seed
-    ${user}                     Factory User            login
-    Insert User                 ${user}
+    ${users}                    Users To Insert DB
 
-    ${user2}                    Factory User            be_geek
-    Insert User                 ${user2}
-
-    ${user3}                    Factory User            attempt_be_geek
-    Insert User                 ${user3}
+    FOR    ${user}    IN    @{users}
+        Insert User    ${user}
+    END
