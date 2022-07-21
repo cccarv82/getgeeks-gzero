@@ -34,12 +34,12 @@ jobs:
       with:
         name: api-report
         path: backend/report
-    - name: Test Reporter
-      uses: phoenix-actions/test-reporting@v8
-      with:
-        name: API Test Result
-        path: backend/report/xunit.xml
-        reporter: java-junit
+    # - name: Test Reporter
+    #   uses: phoenix-actions/test-reporting@v8
+    #   with:
+    #     name: API Test Result
+    #     path: backend/report/xunit.xml
+    #     reporter: java-junit
 
   web_tests:
     needs: api_tests
@@ -80,9 +80,9 @@ jobs:
       with:
         name: web-report
         path: frontend/report
-    - name: Test Reporter
-      uses: phoenix-actions/test-reporting@v8
-      with:
-        name: WEB Test Result
-        path: frontend/report/xunit.xml
-        reporter: java-junit
+    # - name: Test Reporter
+    #   uses: phoenix-actions/test-reporting@v8
+    #   with:
+    #     name: WEB Test Result
+    #     path: frontend/report/xunit.xml
+    #     reporter: java-junit
