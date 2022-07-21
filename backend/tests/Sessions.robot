@@ -12,10 +12,9 @@ User session
     ${payload}            Factory User Session        login
     ${response}           POST Session                ${payload}
     ${token_lenght}       Get Length                  ${response.json()}[token]
-    ${exp_token_lenght}   Convert To Integer          140
 
     Status Should Be      200                         ${response}
-    Should Be Equal       ${exp_token_lenght}         ${token_lenght}
+    Should Be True        ${token_lenght} > 0
     Should Be Equal       10d                         ${response.json()}[expires_in]
 
 Should Not Get Token
