@@ -1,25 +1,25 @@
-*Settings*
-Documentation                   Be a Geek Test Suite
+*** Settings ***
+Documentation                                     Be a Geek Test Suite
 
-Resource                        ${EXECDIR}/resources/Base.robot
+Resource                                          ${EXECDIR}/resources/Base.robot
 
-Test Setup                      Start Session
-Test Teardown                   After Test
+Test Setup                                        Start Session
+Test Teardown                                     After Test
 
 
-*Test Cases*
+*** Test Cases ***
 Be a Geek
-    [Tags]                      positive            smoke
+    [Tags]        positive                smoke
 
     # Dado que eu tenha um usuário comum
-    ${user}                     Factory User        be_geek
+    ${user}       Factory User            be_geek
 
     # Faço login na plataforma
-    Do Login                    ${user}
+    Do Login      ${user}
 
     # Quando submeto o formulário para me tornar um geek
     Go To Be Geek Form
-    Fill Geek Form              ${user}[geek_profile]
+    Fill Geek Form                        ${user}[geek_profile]
     Submit Geek Form
 
     # Entao devo ver a mensagem de sucesso
