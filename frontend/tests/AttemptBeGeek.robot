@@ -4,7 +4,7 @@ Documentation                   Attempt to Be a Geek Test Suite
 Resource                        ${EXECDIR}/resources/Base.robot
 
 Suite Setup                      Start Session For Attempt To Be A Geek
-#Test Teardown                   Finish Session
+# Test Teardown                   Finish Session
 Test Template                   Attempt To Be A Geek
 
 *Variables*

@@ -2,7 +2,6 @@
 Documentation                          Search for Geeks Test Suite
 
 Resource                               ${EXECDIR}/resources/Base.robot
-Resource    ../resources/Helpers.robot
 
 Test Setup                             Start Session
 Test Teardown                          After Test
