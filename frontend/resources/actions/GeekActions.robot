@@ -72,3 +72,8 @@ Alien Icon Should Be Visible
 
 Alien Icon Should Not Be Visible
     Get Text                     ${target}                                not contains           👽
+
+Validate Geek Not Found Message
+    ${expected_message}          Set Variable                             Não encontramos Geeks com o(s) termo(s) informado na busca!
+    Wait For Elements State      .search-not-found p >> text=${expected_message}
+    ...                          visible            5s

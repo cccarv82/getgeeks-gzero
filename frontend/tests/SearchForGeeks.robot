@@ -38,3 +38,11 @@ Search for not an alien geek
     Submit Geeks Search Form
     Geek Should Be Found               ${not_an_alien}
     Alien Icon Should Not Be Visible
+
+Geek not found
+    ${searcher}                        Factory User                    searcher
+    Do Login                           ${searcher}
+    Go To Geeks
+    Fill Geeks Search Form             Não                             Atari
+    Submit Geeks Search Form
+    Validate Geek Not Found Message

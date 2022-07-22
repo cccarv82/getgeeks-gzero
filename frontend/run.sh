@@ -11,7 +11,7 @@ robot -l NONE -o NONE -r NONE tasks/DatabasePreparation.robot
 #por tags
 #robot -d ./report -v BROWSER:chromium -v HEADLESS:True tests/AttemptBeGeek.robot
 #tudo via pabot
-pabot -x xunit.xml -d ./report -v BROWSER:chromium -v HEADLESS:True tests/
+pabot --testlevelsplit -x xunit.xml -d ./report -v BROWSER:chromium -v HEADLESS:True tests/
 #
 rm -rf playwright-log.txt
 mkdir report/browser
