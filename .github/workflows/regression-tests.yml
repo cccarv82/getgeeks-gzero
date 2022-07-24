@@ -86,3 +86,38 @@ jobs:
     #     name: WEB Test Result
     #     path: frontend/report/xunit.xml
     #     reporter: java-junit
+
+  generate_api_report:
+      if: always()
+      needs: [web_tests]
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@v2
+      - name: Download reports
+        uses: actions/download-artifact@v1
+        with:
+          name: api-report
+      - name: Send report to commit
+        uses: joonvena/robotframework-reporter-action@v2.1
+        with:
+          gh_access_token: ${{ secrets.GITHUB_TOKEN }}
+          summary: true
+          report_path: api-report
+
+  generate_web_report:
+      if: always()
+      needs: [generate_api_report]
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@v2
+      - name: Download reports
+        uses: actions/download-artifact@v1
+        with:
+          name: web-report
+      - name: Send report to commit
+        uses: joonvena/robotframework-reporter-action@v2.1
+        with:
+          gh_access_token: ${{ secrets.GITHUB_TOKEN }}
+          summary: true
+          report_path: web-report
+
